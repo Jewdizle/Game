@@ -9,6 +9,14 @@ public class ballBehaviour : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        //rb.AddForce(transform.forward * ballThrust);
+
+        if (Random.Range(-1f, 1) < 0)
+        {
+            rb.AddForce(-ballThrust, 0, 0, ForceMode.Acceleration);
+        }
+        else
+        {
+            rb.AddForce(ballThrust, 0, 0, ForceMode.Acceleration);
+        }
     }
 }
