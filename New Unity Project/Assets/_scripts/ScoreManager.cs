@@ -7,13 +7,22 @@ public class ScoreManager : MonoBehaviour
     public int one;
     public int two;
 
+    private UIManager uiMan;
+
+    private void Start()
+    {
+        uiMan = GetComponent<UIManager>();
+    }
+
     public void OneScore()
     {
         one++;
+        uiMan.UpdateScore(one, two);
     }
 
     public void TwoScore()
     {
         two++;
+        uiMan.UpdateScore(one, two);
     }
 }

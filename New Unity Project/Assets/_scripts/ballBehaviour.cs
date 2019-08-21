@@ -10,7 +10,7 @@ public class ballBehaviour : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
-        if (Random.Range(-1f, 1) < 0)
+        if (Random.Range(-1f, 1f) < 0)
         {
             rb.AddForce(-ballThrust, 0, 0, ForceMode.Acceleration);
         }

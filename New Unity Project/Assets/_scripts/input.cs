@@ -14,9 +14,19 @@ public class input : MonoBehaviour
     public float speed = 1f;
     public float clamp = 1f;
     public string axisName;
+    public string punchAxis;
+    private bool punching;
+    private Rigidbody rb;
+    public float punchPower;
+    private float startX;
+    public float clampX;
 
     private void Start()
     {
+        startX = transform.position.x;
+
+        rb = GetComponent<Rigidbody>();
+
         if(playerSetting == PlayerController.player1)
         {
             axisName = "player1";
@@ -25,12 +35,28 @@ public class input : MonoBehaviour
         {
             axisName = "player2";
         }
-
     }
-    // Update is called once per frame
+
     void Update()
     {
         MovePaddle(Input.GetAxis(axisName));
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            punching = true;
+        }
+        if(punching == true)
+        {
+            Punch();
+        }
+
+        
+    }
+
+    public void Punch()
+    {
+        rb.AddForce(transform.forward * punchPower);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, startX, clampX), transform.position.y, transform.position.z);
     }
 
     public void MovePaddle(float inputAxisInfo)

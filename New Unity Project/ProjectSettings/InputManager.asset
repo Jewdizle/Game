@@ -25,8 +25,8 @@ InputManager:
     m_Name: player2
     descriptiveName: left2
     descriptiveNegativeName: right2
-    negativeButton: a
-    positiveButton: d
+    negativeButton: d
+    positiveButton: a
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
