@@ -24,5 +24,7 @@ public class ScoreManager : MonoBehaviour
     {
         two++;
         uiMan.UpdateScore(one, two);
+
+        float ratio = ((float)one+1) / ((float)two+1);
     }
 }

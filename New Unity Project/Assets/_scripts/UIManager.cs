@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 {
     public Text playerOneScore;
     public Text playerTwoScore;
+    public float fontScale;
 
 
 
